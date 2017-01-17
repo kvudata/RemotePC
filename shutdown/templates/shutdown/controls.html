@@ -1,4 +1,8 @@
 
+{% if msg %}
+  <p>{{ msg }}</p>
+{% endif %}
+
 <form action="{% url 'shutdown:suspend' %}" method="get">
   <input type="submit" value="suspend" />
 </form>

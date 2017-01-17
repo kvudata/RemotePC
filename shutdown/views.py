@@ -12,8 +12,9 @@ def show_controls(req):
 
 def handle_suspend_req(req):
     suspend.after_response()
-    return HttpResponse('suspending!')
+    return render(req, 'shutdown/controls.html', {'msg': 'suspending'})
 
 @after_response.enable
 def suspend():
     call(['systemctl', 'suspend'])
+
