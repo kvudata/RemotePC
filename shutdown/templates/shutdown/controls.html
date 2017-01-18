@@ -1,8 +1,17 @@
+{% extends 'shutdown/base.html' %}
 
-{% if msg %}
-  <p>{{ msg }}</p>
-{% endif %}
+{% block head-links %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/controls.css' %}">
+{% endblock %}
 
-<form action="{% url 'shutdown:suspend' %}" method="get">
-  <input type="submit" value="suspend" />
-</form>
+{% block body %}
+  <h1>PC Controls</h1>
+  {% if msg %}
+    <p>{{ msg }}</p>
+  {% endif %}
+
+  <form action="{% url 'shutdown:suspend' %}" method="get">
+    <input type="submit" value="suspend" style="width:80%;" />
+  </form>
+{% endblock %}
